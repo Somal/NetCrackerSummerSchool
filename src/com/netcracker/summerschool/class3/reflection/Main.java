@@ -1,4 +1,4 @@
-package com.netcracker.summerschool.class3;
+package com.netcracker.summerschool.class3.reflection;
 
 
 import java.io.BufferedReader;
@@ -7,13 +7,12 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.DoubleSummaryStatistics;
 
 /**
  * Created by somal on 06.07.16.
  */
 public class Main {
-    public static void main(String[] args) throws IOException, InvocationTargetException, IllegalAccessException {
+    public static void main(String[] args) throws IOException, InvocationTargetException, IllegalAccessException, InstantiationException {
         ArrayList<String> methods = null;
         try {
             BufferedReader in = new BufferedReader(new FileReader("/media/somal/EC70EE3770EE0862/HiTech/NetCrackerSummerSchool/src/com/netcracker/summerschool/class3/in.txt")); //InputStreamReader(System.in));
@@ -34,7 +33,7 @@ public class Main {
 
             Class c = Class.forName(getClassName(methods.get(0)));
             Method m = c.getMethod(getMethodName(methods.get(0)));
-            m.invoke(new A(), null);
+            m.invoke(c.newInstance(), null);
 
             c = Class.forName(getClassName(methods.get(1)));
             m = c.getMethod(getMethodName(methods.get(1)));

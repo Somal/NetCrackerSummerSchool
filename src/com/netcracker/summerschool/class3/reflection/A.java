@@ -1,4 +1,4 @@
-package com.netcracker.summerschool.class3;
+package com.netcracker.summerschool.class3.reflection;
 
 import java.util.ArrayList;
 

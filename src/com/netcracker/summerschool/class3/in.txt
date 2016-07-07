@@ -1,3 +1,0 @@
-com.netcracker.summerschool.class3.A.method()
-com.netcracker.summerschool.class3.B.getLastString()
-com.netcracker.summerschool.class3.C.square()
