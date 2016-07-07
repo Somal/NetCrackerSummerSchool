@@ -11,11 +11,12 @@ import java.util.ArrayList;
 /**
  * Created by somal on 06.07.16.
  */
+
 public class Main {
     public static void main(String[] args) throws IOException, InvocationTargetException, IllegalAccessException, InstantiationException {
         ArrayList<String> methods = null;
         try {
-            BufferedReader in = new BufferedReader(new FileReader("/media/somal/EC70EE3770EE0862/HiTech/NetCrackerSummerSchool/src/com/netcracker/summerschool/class3/in.txt")); //InputStreamReader(System.in));
+            BufferedReader in = new BufferedReader(new FileReader("src/com/netcracker/summerschool/class3/reflection/in.txt")); //InputStreamReader(System.in));
 
             methods = new ArrayList<>();
             String tmp = "";
@@ -33,7 +34,7 @@ public class Main {
 
             Class c = Class.forName(getClassName(methods.get(0)));
             Method m = c.getMethod(getMethodName(methods.get(0)));
-            m.invoke(c.newInstance(), null);
+            m.invoke(new A(), null);
 
             c = Class.forName(getClassName(methods.get(1)));
             m = c.getMethod(getMethodName(methods.get(1)));
