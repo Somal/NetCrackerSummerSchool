@@ -1,6 +1,5 @@
 package com.netcracker.summerschool.class3.reflection;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,43 +11,50 @@ import java.util.ArrayList;
  * Created by somal on 06.07.16.
  */
 
+
 public class Main {
     public static void main(String[] args) throws IOException, InvocationTargetException, IllegalAccessException, InstantiationException {
         ArrayList<String> methods = null;
-        try {
-            BufferedReader in = new BufferedReader(new FileReader("src/com/netcracker/summerschool/class3/reflection/in.txt")); //InputStreamReader(System.in));
+        BufferedReader in = new BufferedReader(new FileReader("src/com/netcracker/summerschool/class3/reflection/in.txt")); //InputStreamReader(System.in));
 
-            methods = new ArrayList<>();
-            String tmp = "";
-            int count = 0;
-            while (true) {
-                tmp = in.readLine();
-                if (tmp == null)
-                    break;
-                else {
-                    methods.add(tmp);
-                    count++;
-                }
+        methods = new ArrayList<>();
+        String tmp = "";
+        int count = 0;
+        while (true) {
+            tmp = in.readLine();
+            if (tmp == null)
+                break;
+            else {
+                methods.add(tmp);
+                count++;
             }
-            in.close();
-
-            Class c = Class.forName(getClassName(methods.get(0)));
-            Method m = c.getMethod(getMethodName(methods.get(0)));
-            m.invoke(new A(), null);
-
-            c = Class.forName(getClassName(methods.get(1)));
-            m = c.getMethod(getMethodName(methods.get(1)));
-            System.out.println(m.invoke(new B(), null));
-
-            c = Class.forName(getClassName(methods.get(2)));
-            m = c.getMethod(getMethodName(methods.get(2)), new Class[]{Double.class});
-            System.out.println(m.invoke(new C(), new Object[]{3.0}));
-
-        } catch (ClassNotFoundException e1) {
-            System.out.println(e1);
-        } catch (NoSuchMethodException e1) {
-            System.out.println(e1);
         }
+        in.close();
+
+        for (int i = 0; i < count; i++)
+            try {
+                Class c = Class.forName(getClassName(methods.get(i)));
+                String methodName = getMethodName(methods.get(i));
+                ArrayList<Method> methodArrayList = new ArrayList<Method>(1);
+                for (Method m : c.getMethods())
+                    if (m.getName().equals(methodName)) {
+                        methodArrayList.add(m);
+
+                        try {
+//                           System.out.println(m.getReturnType().getName()=="void"
+                            Object result = m.invoke(c.newInstance(), getArguments(methods.get(i)));
+                            System.out.print(result == null ? "" : result + "\n");
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }
+                    }
+
+//                System.out.println(methodArrayList);
+            } catch (ClassNotFoundException e1) {
+                System.out.println(e1);
+//            } catch (NoSuchMethodException e1) {
+//                System.out.println(e1);
+            }
     }
 
     public static String getClassName(String input) {
@@ -64,6 +70,17 @@ public class Main {
         String words = input.split("\\(")[0];
         String[] byDot = words.split("\\.");
         return byDot[byDot.length - 1];
+    }
+
+    public static Double[] getArguments(String input) {
+        String word = input.split("\\(")[1];
+        if (word.split("\\)").length == 0) return null;
+        String words = word.split("\\)")[0];
+        String[] args = words.split(",");
+        Double[] argsDouble = new Double[args.length]; // used for primitives
+        for (int i = 0; i < args.length; i++)
+            argsDouble[i] = Double.parseDouble(args[i]);
+        return argsDouble;
     }
 
 }
