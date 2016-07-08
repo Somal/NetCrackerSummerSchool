@@ -30,7 +30,9 @@ public class SelfResizableVector<T> implements Vector<T> {
     }
 
     @Override
-    public T getValue(int index) {
+    public T getValue(int index) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= array.length) throw new IndexOutOfBoundsException("Index isn't correct ");
+
         return (T) array[index];
     }
 

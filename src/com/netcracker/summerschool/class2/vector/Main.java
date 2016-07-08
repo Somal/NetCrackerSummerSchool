@@ -16,14 +16,13 @@ public class Main {
 //        System.out.println(vector);
 //        //////
 
-        Vector<Integer> vector1=new ResizableVector<Integer>(5);
+        Vector<Integer> vector1 = new ResizableVector<Integer>(5);
         System.out.println(vector1);
-        vector1.setValue(2,5);
+        vector1.setValue(2, 5);
         System.out.println(vector1);
-        vector1.setValue(10,5);
-        vector1.setValue(0,124);
+        vector1.setValue(10, 5);
+        vector1.setValue(0, 124);
         System.out.println(vector1);
-
 
 
 //        vector.setValue(20,5);

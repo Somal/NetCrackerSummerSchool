@@ -26,7 +26,8 @@ public class ResizableVector<T> implements Vector<T> {
     }
 
     @Override
-    public T getValue(int index) {
+    public T getValue(int index) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= list.size()) throw new IndexOutOfBoundsException("Index isn't correct ");
         return list.get(index);
     }
 
