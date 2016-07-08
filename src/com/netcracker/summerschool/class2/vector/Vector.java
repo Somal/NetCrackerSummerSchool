@@ -5,7 +5,7 @@ package com.netcracker.summerschool.class2.vector;
  */
 public interface Vector<T> {
 
-    public void setValue(int index, T O) throws Exception;
+    public void setValue(int index, T O);
 
     public T getValue(int index);
 

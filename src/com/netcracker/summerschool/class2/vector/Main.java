@@ -5,7 +5,7 @@ package com.netcracker.summerschool.class2.vector;
  */
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IndexOutOfBoundsException {
         Vector<Integer> vector = new SelfResizableVector<Integer>(5);
 //        System.out.println(vector);
         vector.setValue(6, 5);

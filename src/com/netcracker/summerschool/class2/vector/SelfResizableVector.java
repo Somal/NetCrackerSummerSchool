@@ -7,16 +7,16 @@ package com.netcracker.summerschool.class2.vector;
 public class SelfResizableVector<T> implements Vector<T> {
     Object[] array;
 
-    public SelfResizableVector(int length) throws Exception {
+    public SelfResizableVector(int length) throws IndexOutOfBoundsException {
         if (length < 0)
-            throw new Exception("Size less than 0");
+            throw new IndexOutOfBoundsException("Size less than 0");
         array = new Object[length];
     }
 
     @Override
-    public void setValue(int index, T O) throws Exception {
+    public void setValue(int index, T O) throws IndexOutOfBoundsException {
         if (index < 0)
-            throw new Exception("Size less than 0");
+            throw new IndexOutOfBoundsException("Size less than 0");
 
         if (index < getLength()) array[index] = O;
         else {

@@ -9,15 +9,15 @@ public class ResizableVector<T> implements Vector<T> {
     LinkedList<T> list;
 
 
-    public ResizableVector(int length) throws Exception {
+    public ResizableVector(int length) throws IndexOutOfBoundsException {
         if (length < 0)
-            throw new Exception("Size less than 0");
+            throw new IndexOutOfBoundsException("Size less than 0");
         list = new LinkedList<T>();
         for (int i = 0; i < length; i++) list.add(null);
     }
 
     @Override
-    public void setValue(int index, T O) throws Exception {
+    public void setValue(int index, T O) {
         if (index < getLength()) list.set(index, O);
         else {
             resizeLength(index + 1);
