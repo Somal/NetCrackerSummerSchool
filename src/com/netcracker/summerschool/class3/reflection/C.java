@@ -7,9 +7,10 @@ import java.util.ArrayList;
  */
 public class C {
     public C() {
+
     }
 
-    public double square(double a) {
+    public static  Double square(double a) {
         return a * a;
     }
 

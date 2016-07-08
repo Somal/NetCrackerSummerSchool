@@ -5,7 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Created by somal on 06.07.16.
@@ -42,7 +44,8 @@ public class Main {
 
                         try {
 //                           System.out.println(m.getReturnType().getName()=="void"
-                            Object result = m.invoke(c.newInstance(), getArguments(methods.get(i)));
+                            Object instance = Modifier.isStatic(m.getModifiers()) ? null : c.newInstance();
+                            Object result = m.invoke(instance, getArguments(methods.get(i)));
                             System.out.print(result == null ? "" : result + "\n");
                         } catch (Exception e) {
                             System.out.println(e);
@@ -72,12 +75,12 @@ public class Main {
         return byDot[byDot.length - 1];
     }
 
-    public static Double[] getArguments(String input) {
+    public static Object[] getArguments(String input) {
         String word = input.split("\\(")[1];
         if (word.split("\\)").length == 0) return null;
         String words = word.split("\\)")[0];
         String[] args = words.split(",");
-        Double[] argsDouble = new Double[args.length]; // used for primitives
+        Object[] argsDouble = new Double[args.length]; // used for primitives
         for (int i = 0; i < args.length; i++)
             argsDouble[i] = Double.parseDouble(args[i]);
         return argsDouble;
