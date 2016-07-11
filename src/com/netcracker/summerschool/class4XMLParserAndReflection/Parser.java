@@ -1,7 +1,10 @@
-package com.netcracker.summerschool.class4.XMLParserAndReflection;
+package com.netcracker.summerschool.class4XMLParserAndReflection;
 
 /**
  * Created by somal on 07.07.16.
+ * The parser gives information from XML about Graphic structure.
+ * After that we create tree structure based on called classes by Reflection API
+ * and draw by the tree
  */
 
 import xmlsaxparser.*;
@@ -22,6 +25,10 @@ public class Parser {
 
     public Parser(Document document) {
         this.document = document;
+    }
+
+    public BaseElement getRoot() {
+        return this.root;
     }
 
     public void parse() throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
@@ -69,11 +76,6 @@ public class Parser {
             recursion(node.getChildNodes().item(i), be, depth + 1);
         }
     }
-
-    public BaseElement getRoot() {
-        return this.root;
-    }
-
 
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException, ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

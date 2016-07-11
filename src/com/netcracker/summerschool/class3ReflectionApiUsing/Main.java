@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 /**
  * Created by somal on 06.07.16.
+ * This class used Reflection API for running class from in.txt.
+ *
  */
 
 
@@ -55,6 +57,10 @@ public class Main {
             }
     }
 
+    /**
+     * @param input - string from file
+     * @return Class name
+     */
     public static String getClassName(String input) {
         String classes = input.split("\\(")[0];
         String[] classesArray = classes.split("\\.");
@@ -64,12 +70,20 @@ public class Main {
         return String.join(".", tmp);
     }
 
+    /**
+     * @param input string from file
+     * @return Method name
+     */
     public static String getMethodName(String input) {
         String words = input.split("\\(")[0];
         String[] byDot = words.split("\\.");
         return byDot[byDot.length - 1];
     }
 
+    /**
+     * @param input string from file
+     * @return Method arguments from string
+     */
     public static Object[] getArguments(String input) {
         String word = input.split("\\(")[1];
         if (word.split("\\)").length == 0) return null;
