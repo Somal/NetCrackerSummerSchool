@@ -28,14 +28,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/image")
 public class Servlet extends javax.servlet.http.HttpServlet {
-
-    class ImageCreator {
-        public void writeImageStream(OutputStream out, HttpServletRequest request) throws IOException {
-
-
-        }
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         OutputStream out = response.getOutputStream();
         try {
