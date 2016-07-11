@@ -1,4 +1,4 @@
-package example;
+package com.netcracker.summerschool.class6ServletsAndJSP.src.example;
 
 import com.sun.deploy.net.HttpRequest;
 
@@ -17,41 +17,39 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by somal on 11.07.16.
+ * My servlet which draw image with text from text input field.
+ * <p>
+ * 1) Run servlet under GlassFish/TomCat server
+ * 2) Go to localhost:9000/commands
+ * 3) Enter text in the field
+ * 4) Press button
+ * 5) Go to 3)
  */
 
 @WebServlet("/image")
 public class Servlet extends javax.servlet.http.HttpServlet {
 
     class ImageCreator {
-        public String text = "Test";
-
         public void writeImageStream(OutputStream out, HttpServletRequest request) throws IOException {
-            BufferedImage bi = new BufferedImage(300, 300, BufferedImage.TYPE_INT_RGB);
-            Graphics g = bi.getGraphics();
 
-            g.setColor(Color.white);
-            g.fillRect(1, 1, 300, 300);
-            g.setColor(Color.black);
-
-            Font f = new Font("Arial", Font.PLAIN, 60);
-            g.setFont(f);
-
-//            System.out.println(request.getAttributeNames());
-            g.drawString((String) request.getParameter("text"), 100, 100);
-
-
-            ImageIO.write(bi, "JPEG", out);
 
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-//        PrintWriter outpw = response.getWriter();
         OutputStream out = response.getOutputStream();
         try {
-//
-            ImageCreator ic = new ImageCreator();
-            ic.writeImageStream(out, request);
+            BufferedImage bi = new BufferedImage(300, 300, BufferedImage.TYPE_INT_RGB);
+            Graphics g = bi.getGraphics();
+
+            g.setColor(Color.white);
+            g.fillRect(1, 1, 300, 300);
+
+            Font f = new Font("Arial", Font.PLAIN, 60);
+            g.setFont(f);
+
+            g.drawString(request.getParameter("text"), 100, 100);
+            ImageIO.write(bi, "JPEG", out);
         } finally {
             out.close();
         }
