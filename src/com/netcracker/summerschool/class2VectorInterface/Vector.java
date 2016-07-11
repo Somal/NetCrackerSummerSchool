@@ -1,4 +1,4 @@
-package com.netcracker.summerschool.class2_vector_interface;
+package com.netcracker.summerschool.class2VectorInterface;
 
 /**
  * Created by somal on 05.07.16.

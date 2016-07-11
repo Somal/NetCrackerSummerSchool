@@ -1,4 +1,4 @@
-package com.netcracker.summerschool.class2_vector_interface;
+package com.netcracker.summerschool.class2VectorInterface;
 
 import java.util.LinkedList;
 
