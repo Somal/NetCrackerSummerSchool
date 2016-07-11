@@ -1,4 +1,4 @@
-package com.netcracker.summerschool.class3.reflection;
+package com.netcracker.summerschool.class3ReflectionApiUsing;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -7,7 +7,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  * Created by somal on 06.07.16.
@@ -16,10 +15,9 @@ import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) throws IOException, InvocationTargetException, IllegalAccessException, InstantiationException {
-        ArrayList<String> methods = null;
-        BufferedReader in = new BufferedReader(new FileReader("src/com/netcracker/summerschool/class3/reflection/in.txt")); //InputStreamReader(System.in));
+        ArrayList<String> methods = new ArrayList<>();
+        BufferedReader in = new BufferedReader(new FileReader("src/com/netcracker/summerschool/class3ReflectionApiUsing/in.txt")); //InputStreamReader(System.in));
 
-        methods = new ArrayList<>();
         String tmp = "";
         int count = 0;
         while (true) {
@@ -43,7 +41,6 @@ public class Main {
                         methodArrayList.add(m);
 
                         try {
-//                           System.out.println(m.getReturnType().getName()=="void"
                             Object instance = Modifier.isStatic(m.getModifiers()) ? null : c.newInstance();
                             Object result = m.invoke(instance, getArguments(methods.get(i)));
                             System.out.print(result == null ? "" : result + "\n");
@@ -55,8 +52,6 @@ public class Main {
 //                System.out.println(methodArrayList);
             } catch (ClassNotFoundException e1) {
                 System.out.println(e1);
-//            } catch (NoSuchMethodException e1) {
-//                System.out.println(e1);
             }
     }
 
