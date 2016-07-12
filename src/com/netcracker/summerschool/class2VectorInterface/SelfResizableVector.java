@@ -1,6 +1,8 @@
 package com.netcracker.summerschool.class2VectorInterface;
 
 
+import java.io.Serializable;
+
 /**
  * Created by somal on 05.07.16.
  */

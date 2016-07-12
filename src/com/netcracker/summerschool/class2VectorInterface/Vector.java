@@ -10,7 +10,7 @@ package com.netcracker.summerschool.class2VectorInterface;
  * <p>
  * First class based on array, second - on linked list.
  */
-public interface Vector<T> {
+public interface Vector<T>  {
 
     public void setValue(int index, T O);
 
