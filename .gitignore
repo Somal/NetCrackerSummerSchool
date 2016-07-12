@@ -1,0 +1,26 @@
+# IntelliJ project files
+.idea
+*.iml
+*.eml
+/.gitignore
+/.*
+out/
+
+Будет удалено .classpath
+Будет удалено .project
+Будет удалено lib/.fuse_hidden00000db900000001
+Будет удалено lib/javax.annotation.jar
+Будет удалено lib/javax.ejb.jar
+Будет удалено lib/javax.jms.jar
+Будет удалено lib/javax.persistence.jar
+Будет удалено lib/javax.resource.jar
+Будет удалено lib/javax.servlet.jar
+Будет удалено lib/javax.servlet.jsp.jar
+Будет удалено lib/javax.servlet.jsp.jstl.jar
+Будет удалено lib/javax.transaction.jar
+Будет удалено out/
+Будет удалено src/com/netcracker/summerschool/class6ServletsAndJSP/lib/
+Будет удалено src/com/netcracker/summerschool/class6ServletsAndJSP/out/
+Будет удалено src/com/netcracker/summerschool/class6ServletsAndJSP/src/example/HelloWorld.java
+Будет удалено src/com/netcracker/summerschool/class6ServletsAndJSP/web/WEB-INF/web.xml
+Будет удалено src/com/netcracker/summerschool/class6ServletsAndJSP/web/index.jsp
