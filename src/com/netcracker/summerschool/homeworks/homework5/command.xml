@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+    <command type="moveTo" x="3" y="0"></command>
+    <command type="turnTo" direction="SOUTH"></command>
+    <command type="import" file="src/com/netcracker/summerschool/homeworks/homework5/command1.xml"></command>
+</root>
