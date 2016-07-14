@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) throws IOException, InvocationTargetException, IllegalAccessException, InstantiationException {
         ArrayList<String> methods = new ArrayList<>();
-        BufferedReader in = new BufferedReader(new FileReader("src/com/netcracker/summerschool/class3ReflectionApiUsing/in.txt")); //InputStreamReader(System.in));
+        BufferedReader in = new BufferedReader(new FileReader("src/com/netcracker/summerschool/classes/class3ReflectionApiUsing/in.txt")); //InputStreamReader(System.in));
 
         String tmp = "";
         int count = 0;

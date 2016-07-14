@@ -5,4 +5,5 @@ package com.netcracker.summerschool.homeworks.homework3;
  */
 public interface Turnable {
     public void turnTo(Direction d);
+
 }
