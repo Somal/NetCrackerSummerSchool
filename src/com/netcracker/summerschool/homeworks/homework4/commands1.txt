@@ -1,0 +1,2 @@
+moveTo(4,5)
+import(src/com/netcracker/summerschool/homeworks/homework4/commands3.txt)
